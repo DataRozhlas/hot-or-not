@@ -1,0 +1,10 @@
+.container {
+    width: 50%
+}
+.container :hover {
+    background-color: aquamarine;
+    cursor: pointer;
+}
+.title {
+    text-align: center;
+}
