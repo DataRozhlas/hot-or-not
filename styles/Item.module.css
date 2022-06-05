@@ -1,10 +1,19 @@
 .container {
-    width: 50%
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 1rem;
+    background-color: #fff;
+    border: none;
 }
-.container :hover {
+.container:hover {
     background-color: aquamarine;
     cursor: pointer;
 }
-.title {
-    text-align: center;
+.image-wrapper {
+    padding: 0.5rem;
+}
+.image {
+    border-radius: 50%;
 }
