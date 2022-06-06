@@ -8,7 +8,7 @@ const HistoryPanel = (props) => {
     <div className={styles.container}>
       <h3 className={styles.mensi}>
         {props.history.length > 0
-          ? "Už jste si vybrali"
+          ? "Vyberte z další dvojice. Už jste si vybrali:"
           : "Vyberte si jednoho z kandidátů"}
       </h3>
       <div className={styles.historyBox}>
@@ -21,6 +21,7 @@ const HistoryPanel = (props) => {
               key={index}
               item={item}
               details={details}
+              results={props.results}
             ></HistoryItem>
           );
         })}
