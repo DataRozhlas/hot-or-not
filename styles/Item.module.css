@@ -7,10 +7,15 @@
     background-color: #fff;
     border: none;
 }
-.container:hover {
-    background-color: aquamarine;
-    cursor: pointer;
-}
+
+@media (hover: hover) and (pointer: fine) {
+    .container:hover {
+        background-color: aquamarine;
+        cursor: pointer;
+    }
+    }
+
+
 .image-wrapper {
     padding: 0.5rem;
 }
