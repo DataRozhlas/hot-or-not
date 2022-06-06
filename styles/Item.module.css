@@ -8,7 +8,7 @@
     border: none;
 }
 
-@media (hover: hover) and (pointer: fine) {
+@media (hover: hover) {
     .container:hover {
         background-color: aquamarine;
         cursor: pointer;
