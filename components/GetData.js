@@ -2,27 +2,37 @@ const data = [
   {
     id: 1,
     name: "Andrej Babiš",
-    img: "/img/andrej-babis.jpg",
+    dativ: "Andreji Babišovi",
+    akuzativ: "Andreje Babiše",
+    key: "andrej-babis",
   },
   {
     id: 2,
     name: "Pavel Fischer",
-    img: "/img/pavel-fischer.jpg",
+    dativ: "Pavlu Fisherovi",
+    akuzativ: "Pavla Fishera",
+    key: "pavel-fischer",
   },
   {
     id: 3,
     name: "Danuše Nerudová",
-    img: "/img/danuse-nerudova.jpg",
+    dativ: "Danuši Nerudové",
+    akuzativ: "Danuši Nerudovou",
+    key: "danuse-nerudova",
   },
   {
     id: 4,
     name: "Josef Středula",
-    img: "/img/josef-stredula.jpg",
+    dativ: "Josefu Středulovi",
+    akuzativ: "Josefa Středulu",
+    key: "josef-stredula",
   },
   {
     id: 5,
     name: "Tomáš Zima",
-    img: "/img/tomas-zima.jpg",
+    dativ: "Tomáši Zimovi",
+    akuzativ: "Tomáše Zimu",
+    key: "tomas-zima",
   },
 ];
 

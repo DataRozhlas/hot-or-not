@@ -16,6 +16,26 @@ const pickRandomCandidates = (candidates) => {
 };
 
 const MainPanel = (props) => {
+  const buttonClickHandler = (candidate) => {
+    //ulož tip do databáze
+    const http = new XMLHttpRequest();
+    const url =
+      "https://2gaah2e3wd66vqvlgcocgzzb4q0pnbjj.lambda-url.eu-central-1.on.aws/";
+    http.open("POST", url);
+    http.send(
+      JSON.stringify({
+        appID: "prez",
+        winnerID: candidate.id,
+        loserID: candidates.filter((c) => c.id !== candidate.id)[0].id,
+      })
+    );
+    props.setHistory((prevState) => {
+      return [...prevState, [candidates[0].id, candidates[1].id, candidate.id]];
+    });
+    setCandidates(pickRandomCandidates(props.data));
+    console.log(candidate);
+  };
+
   const [candidates, setCandidates] = useState([props.data[0], props.data[1]]);
 
   useEffect(() => {
@@ -24,8 +44,14 @@ const MainPanel = (props) => {
 
   return (
     <main className={styles.container}>
-      <Item candidate={candidates[0]}></Item>
-      <Item candidate={candidates[1]}></Item>
+      <Item
+        candidate={candidates[0]}
+        buttonClickHandler={buttonClickHandler}
+      ></Item>
+      <Item
+        candidate={candidates[1]}
+        buttonClickHandler={buttonClickHandler}
+      ></Item>
     </main>
   );
 };
