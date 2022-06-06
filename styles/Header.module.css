@@ -3,3 +3,13 @@
     justify-content: center;
     height: 4.5rem;
 }
+
+
+@media only screen and (max-width: 400px) {
+    h1.small {
+        font-size: 1.5rem;
+    }
+    .container {
+        height: 3rem;
+    }
+}
