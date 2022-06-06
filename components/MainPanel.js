@@ -2,14 +2,22 @@ import React, { useState, useEffect } from "react";
 import Item from "./Item";
 import styles from "../styles/MainPanel.module.css";
 
-const pickRandomCandidates = (candidates) => {
+const pickRandomCandidates = (candidates, prevCandidates) => {
+  const prevCandidatesIDs = prevCandidates.map((c) => c.id);
   //pick random candidate
-  const candidate1 = candidates[Math.floor(Math.random() * candidates.length)];
+  let candidate1;
+  do {
+    candidate1 = candidates[Math.floor(Math.random() * candidates.length)];
+  } while (prevCandidatesIDs.includes(candidate1.id));
+
   let candidate2;
 
   do {
     candidate2 = candidates[Math.floor(Math.random() * candidates.length)];
-  } while (candidate1.id === candidate2.id);
+  } while (
+    candidate1.id === candidate2.id ||
+    prevCandidatesIDs.includes(candidate2.id)
+  );
 
   return [candidate1, candidate2];
   //TODO pick weighted random candidate
@@ -17,7 +25,7 @@ const pickRandomCandidates = (candidates) => {
 
 const MainPanel = (props) => {
   const buttonClickHandler = (candidate) => {
-    //ulož tip do databáze
+    //save tip to dynamodb
     const http = new XMLHttpRequest();
     const url =
       "https://2gaah2e3wd66vqvlgcocgzzb4q0pnbjj.lambda-url.eu-central-1.on.aws/";
@@ -32,14 +40,17 @@ const MainPanel = (props) => {
     props.setHistory((prevState) => {
       return [...prevState, [candidates[0].id, candidates[1].id, candidate.id]];
     });
-    setCandidates(pickRandomCandidates(props.data));
-    console.log(candidate);
+    setCandidates((prevState) => {
+      return pickRandomCandidates(props.data, prevState);
+    });
   };
 
   const [candidates, setCandidates] = useState([props.data[0], props.data[1]]);
 
   useEffect(() => {
-    setCandidates(pickRandomCandidates(props.data));
+    setCandidates((prevState) => {
+      return pickRandomCandidates(props.data, prevState);
+    });
   }, [props.data]);
 
   return (
