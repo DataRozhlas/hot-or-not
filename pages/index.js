@@ -5,8 +5,8 @@ import data from "../components/GetData";
 
 export default function Home() {
   return (
-    <>
+    <div>
       <MainPanel data={data}></MainPanel>
-    </>
+    </div>
   );
 }
