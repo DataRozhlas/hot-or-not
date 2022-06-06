@@ -23,9 +23,13 @@ const HistoryItem = (props) => {
       <p>
         <strong>{winner.akuzativ}</strong> proti {loser.dativ}
       </p>
-      <p className={styles.note}>
-        <small>stejně se rozhodlo {winnerPercentage} % čtenářů před vámi</small>
-      </p>
+      {!Number.isNaN(winnerPercentage) && (
+        <p className={styles.note}>
+          <small>
+            stejně se rozhodlo {winnerPercentage} % čtenářů před vámi
+          </small>
+        </p>
+      )}
     </div>
   );
 };

@@ -6,12 +6,12 @@
     padding-top: 1rem;
     background-color: #fff;
     border: none;
+    cursor: pointer;
 }
 
 @media (hover: hover) {
     .container:hover {
         background-color: aquamarine;
-        cursor: pointer;
     }
     }
 

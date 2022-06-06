@@ -19,7 +19,7 @@ export default function Home() {
   }, []);
 
   return (
-    <div className={styles.container}>
+    <div>
       <Header></Header>
       <MainPanel data={data} setHistory={setHistory}></MainPanel>
       <HistoryPanel
@@ -27,6 +27,9 @@ export default function Home() {
         history={history}
         results={results}
       ></HistoryPanel>
+      <div className={styles.buttonContainer}>
+        <button className={styles.button}>Zobrazit kompletní žebříček</button>
+      </div>
     </div>
   );
 }
