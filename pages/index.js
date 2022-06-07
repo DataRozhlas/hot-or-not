@@ -31,12 +31,21 @@ export default function Home() {
       {history.length > 1 && (
         <div className={styles.buttonContainer}>
           <Link href="/vysledky">
-            <button className={styles.button}>
-              Zobrazit kompletní žebříček
-            </button>
+            <button className={styles.button}>Zobrazit žebříček</button>
           </Link>
         </div>
       )}
     </div>
   );
+}
+
+export async function getStaticProps() {
+  const data = await fetch(
+    "https://data.irozhlas.cz/hot-or-not-data/prez.json"
+  ).then((res) => res.json());
+  return {
+    props: {
+      data: data,
+    },
+  };
 }

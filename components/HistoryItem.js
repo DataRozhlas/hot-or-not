@@ -14,7 +14,6 @@ const HistoryItem = (props) => {
   const winnerResults = props.results
     .filter((result) => result.id === winnerID)[0]
     .c.filter((result) => result.id === loserID)[0];
-  console.log(winnerID, loserID, winnerResults);
   const winnerPercentage = Math.round(
     (winnerResults.l / (winnerResults.l + winnerResults.w)) * 100
   );

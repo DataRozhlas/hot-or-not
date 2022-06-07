@@ -1,6 +1,5 @@
 import React from "react";
 import ResultsItem from "./ResultsItem";
-import data from "../components/GetData";
 import styles from "../styles/ResultsPanel.module.css";
 
 const ResultsPanel = (props) => {
@@ -12,18 +11,27 @@ const ResultsPanel = (props) => {
       };
     })
     .sort((a, b) => {
-      return b.pct - a.pct;
+      return props.dativ ? a.pct - b.pct : b.pct - a.pct;
     });
   return (
     <div className={styles.container}>
-      {candidates.map((candidate, index) => (
-        <ResultsItem
-          key={candidate.id}
-          index={index + 1}
-          candidateResults={candidate}
-          candidate={data.filter((i) => i.id === candidate.id)[0]}
-        ></ResultsItem>
-      ))}
+      {!props.dativ && <p>Kliknutím na kandidáta zobrazíte detaily</p>}
+
+      {candidates.map((candidate, index) => {
+        const candidateDetail = props.data.filter(
+          (i) => i.id === candidate.id
+        )[0];
+
+        return (
+          <ResultsItem
+            key={candidate.id}
+            index={index + 1}
+            candidateResults={candidate}
+            candidate={candidateDetail}
+            dativ={props.dativ}
+          ></ResultsItem>
+        );
+      })}
     </div>
   );
 };

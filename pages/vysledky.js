@@ -4,7 +4,7 @@ import Header from "../components/Header";
 import ResultsPanel from "../components/ResultsPanel";
 import Link from "next/link";
 
-export default function Vysledky() {
+export default function Vysledky(props) {
   const [results, setResults] = useState([]);
 
   useEffect(() => {
@@ -19,7 +19,11 @@ export default function Vysledky() {
   return (
     <>
       <Header text="Nejúspěšnější kandidáti"></Header>
-      <ResultsPanel results={results}></ResultsPanel>
+      <ResultsPanel
+        results={results}
+        dativ={false}
+        data={props.data}
+      ></ResultsPanel>
       <div className={styles.buttonContainer}>
         <Link href="/">
           <button className={styles.button}>Zpět</button>
@@ -27,4 +31,15 @@ export default function Vysledky() {
       </div>
     </>
   );
+}
+
+export async function getStaticProps() {
+  const data = await fetch(
+    "https://data.irozhlas.cz/hot-or-not-data/prez.json"
+  ).then((res) => res.json());
+  return {
+    props: {
+      data: data,
+    },
+  };
 }
