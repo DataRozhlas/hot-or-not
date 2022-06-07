@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
-import styles from "../styles/Home.module.css";
+import Link from "next/link";
 import Header from "../components/Header";
 import MainPanel from "../components/MainPanel";
 import HistoryPanel from "../components/HistoryPanel";
 import data from "../components/GetData";
+import styles from "../styles/Home.module.css";
 
 export default function Home() {
   const [history, setHistory] = useState([]);
@@ -20,16 +21,22 @@ export default function Home() {
 
   return (
     <div>
-      <Header></Header>
+      <Header text="Kdo by byl lepší prezident?"></Header>
       <MainPanel data={data} setHistory={setHistory}></MainPanel>
       <HistoryPanel
         data={data}
         history={history}
         results={results}
       ></HistoryPanel>
-      <div className={styles.buttonContainer}>
-        <button className={styles.button}>Zobrazit kompletní žebříček</button>
-      </div>
+      {history.length > 1 && (
+        <div className={styles.buttonContainer}>
+          <Link href="/vysledky">
+            <button className={styles.button}>
+              Zobrazit kompletní žebříček
+            </button>
+          </Link>
+        </div>
+      )}
     </div>
   );
 }
