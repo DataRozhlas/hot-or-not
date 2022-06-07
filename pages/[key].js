@@ -10,7 +10,7 @@ const imgLoader = ({ src, width, quality }) => {
   return `https://data.irozhlas.cz/hot-or-not/out${src}`;
 };
 
-const DetailsPage = () => {
+const DetailsPage = (props) => {
   useEffect(() => {
     const url = "https://data.irozhlas.cz/hot-or-not-results/prez-stats.json";
     fetch(url)
@@ -78,6 +78,17 @@ const DetailsPage = () => {
     )
   );
 };
+
+export async function getStaticPaths() {
+  const data = await fetch(
+    "https://data.irozhlas.cz/hot-or-not-data/prez.json"
+  ).then((res) => res.json());
+
+  return {
+    paths: data.map((i) => ({ params: { key: i.key } })),
+    fallback: false,
+  };
+}
 
 export async function getStaticProps() {
   const data = await fetch(
