@@ -4,10 +4,10 @@ import Image from "next/image";
 import Link from "next/link";
 
 const imgLoader = ({ src, width, quality }) => {
-  return `https://data.irozhlas.cz/hot-or-not/out${src}`;
+  return `https://data.irozhlas.cz/hot-or-not/out${src}-${width}`;
 };
 
-const ResultsItem = (props) => {
+const ResultsItem = props => {
   return (
     <Link href={`/${props.candidate.key}`}>
       <div className={styles.container}>

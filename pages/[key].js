@@ -7,28 +7,28 @@ import ResultsPanel from "../components/ResultsPanel";
 import styles from "../styles/Home.module.css";
 
 const imgLoader = ({ src, width, quality }) => {
-  return `https://data.irozhlas.cz/hot-or-not/out${src}`;
+  return `https://data.irozhlas.cz/hot-or-not/out${src}-${width}`;
 };
 
-const DetailsPage = (props) => {
+const DetailsPage = props => {
   useEffect(() => {
     const url = "https://data.irozhlas.cz/hot-or-not-results/prez-stats.json";
     fetch(url)
-      .then((res) => res.json())
-      .then((data) => {
+      .then(res => res.json())
+      .then(data => {
         setResults(data);
       });
   }, []);
 
   const router = useRouter();
   const key = router.query.key;
-  const candidateDetails = props.data.filter((i) => i.key === key)[0];
+  const candidateDetails = props.data.filter(i => i.key === key)[0];
   let candidateResults;
 
   const [results, setResults] = useState([]);
 
   if (results.length > 0) {
-    candidateResults = results.filter((i) => i.id === candidateDetails.id)[0];
+    candidateResults = results.filter(i => i.id === candidateDetails.id)[0];
   }
 
   return (
@@ -82,10 +82,10 @@ const DetailsPage = (props) => {
 export async function getStaticPaths() {
   const data = await fetch(
     "https://data.irozhlas.cz/hot-or-not-data/prez.json"
-  ).then((res) => res.json());
+  ).then(res => res.json());
 
   return {
-    paths: data.map((i) => ({ params: { key: i.key } })),
+    paths: data.map(i => ({ params: { key: i.key } })),
     fallback: false,
   };
 }
@@ -93,7 +93,7 @@ export async function getStaticPaths() {
 export async function getStaticProps() {
   const data = await fetch(
     "https://data.irozhlas.cz/hot-or-not-data/prez.json"
-  ).then((res) => res.json());
+  ).then(res => res.json());
   return {
     props: {
       data: data,

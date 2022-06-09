@@ -3,10 +3,10 @@ import Image from "next/image";
 import styles from "../styles/Item.module.css";
 
 const imgLoader = ({ src, width, quality }) => {
-  return `https://data.irozhlas.cz/hot-or-not/out${src}`;
+  return `https://data.irozhlas.cz/hot-or-not/out${src}-${width}`;
 };
 
-const Item = (props) => {
+const Item = props => {
   return (
     <button
       className={styles.container}
