@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 const imgLoader = ({ src, width, quality }) => {
-  return `https://data.irozhlas.cz/hot-or-not/out${src}-${width}`;
+  return `https://data.irozhlas.cz/hot-or-not/out${src}-300.jpg`;
 };
 
 const ResultsItem = props => {
@@ -14,7 +14,7 @@ const ResultsItem = props => {
         <Image
           loader={imgLoader}
           className={styles.image}
-          src={`/img/${props.candidate.key}.jpg`}
+          src={`/img/${props.candidate.key}`}
           alt={props.candidate.name}
           width={75}
           height={75}

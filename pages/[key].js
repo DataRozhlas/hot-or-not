@@ -7,7 +7,7 @@ import ResultsPanel from "../components/ResultsPanel";
 import styles from "../styles/Home.module.css";
 
 const imgLoader = ({ src, width, quality }) => {
-  return `https://data.irozhlas.cz/hot-or-not/out${src}-${width}`;
+  return `https://data.irozhlas.cz/hot-or-not/out${src}-300.jpg`;
 };
 
 const DetailsPage = props => {
@@ -43,7 +43,7 @@ const DetailsPage = props => {
           <Image
             loader={imgLoader}
             className={styles.image}
-            src={`/img/${candidateDetails.key}.jpg`}
+            src={`/img/${candidateDetails.key}`}
             alt={candidateDetails.name}
             width={300}
             height={300}
