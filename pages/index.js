@@ -10,14 +10,14 @@ export default function Home() {
   const [history, setHistory] = useState([]);
   const [results, setResults] = useState([]);
 
-  useEffect(() => {
-    const url = "https://data.irozhlas.cz/hot-or-not-data/prez.json";
-    fetch(url)
-      .then(res => res.json())
-      .then(data => {
-        setData(data);
-      });
-  }, []);
+  // useEffect(() => {
+  //   const url = "https://data.irozhlas.cz/hot-or-not-data/prez.json";
+  //   fetch(url)
+  //     .then(res => res.json())
+  //     .then(data => {
+  //       setData(data);
+  //     });
+  // }, []);
 
   useEffect(() => {
     const url = "https://data.irozhlas.cz/hot-or-not-results/prez-stats.json";
