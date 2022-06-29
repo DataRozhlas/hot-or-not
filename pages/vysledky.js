@@ -10,8 +10,8 @@ export default function Vysledky(props) {
   useEffect(() => {
     const url = "https://data.irozhlas.cz/hot-or-not-results/prez-stats.json";
     fetch(url)
-      .then((res) => res.json())
-      .then((data) => {
+      .then(res => res.json())
+      .then(data => {
         setResults(data);
       });
   }, []);
@@ -36,10 +36,10 @@ export default function Vysledky(props) {
 export async function getStaticProps() {
   const data = await fetch(
     "https://data.irozhlas.cz/hot-or-not-data/prez.json"
-  ).then((res) => res.json());
+  ).then(res => res.json());
   return {
     props: {
-      data: data,
+      data: data.filter(item => item.use),
     },
   };
 }
