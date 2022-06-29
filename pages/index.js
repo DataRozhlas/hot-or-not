@@ -60,7 +60,7 @@ export async function getStaticProps() {
   ).then(res => res.json());
   return {
     props: {
-      data: data,
+      data: data.filter(item => item.use),
     },
   };
 }
