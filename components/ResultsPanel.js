@@ -3,7 +3,6 @@ import ResultsItem from "./ResultsItem";
 import styles from "../styles/ResultsPanel.module.css";
 
 const ResultsPanel = props => {
-  console.log(props);
   const candidates = props.results
     .map(candidate => {
       return {

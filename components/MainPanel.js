@@ -3,7 +3,7 @@ import Item from "./Item";
 import styles from "../styles/MainPanel.module.css";
 
 const pickRandomCandidates = (candidates, prevCandidates) => {
-  const prevCandidatesIDs = prevCandidates.map((c) => c.id);
+  const prevCandidatesIDs = prevCandidates.map(c => c.id);
   //pick random candidate
   let candidate1;
   do {
@@ -23,8 +23,8 @@ const pickRandomCandidates = (candidates, prevCandidates) => {
   //TODO pick weighted random candidate
 };
 
-const MainPanel = (props) => {
-  const buttonClickHandler = (candidate) => {
+const MainPanel = props => {
+  const buttonClickHandler = candidate => {
     //save tip to dynamodb
     const http = new XMLHttpRequest();
     const url =
@@ -34,13 +34,15 @@ const MainPanel = (props) => {
       JSON.stringify({
         appID: "prez",
         winnerID: candidate.id,
-        loserID: candidates.filter((c) => c.id !== candidate.id)[0].id,
+        loserID: candidates.filter(c => c.id !== candidate.id)[0].id,
+        url: document.URL,
+        ref: document.referrer,
       })
     );
-    props.setHistory((prevState) => {
+    props.setHistory(prevState => {
       return [...prevState, [candidates[0].id, candidates[1].id, candidate.id]];
     });
-    setCandidates((prevState) => {
+    setCandidates(prevState => {
       return pickRandomCandidates(props.data, prevState);
     });
   };
@@ -48,7 +50,7 @@ const MainPanel = (props) => {
   const [candidates, setCandidates] = useState([props.data[0], props.data[1]]);
 
   useEffect(() => {
-    setCandidates((prevState) => {
+    setCandidates(prevState => {
       return pickRandomCandidates(props.data, prevState);
     });
   }, [props.data]);
