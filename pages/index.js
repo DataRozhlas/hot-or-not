@@ -5,8 +5,12 @@ import MainPanel from "../components/MainPanel";
 import HistoryPanel from "../components/HistoryPanel";
 import styles from "../styles/Home.module.css";
 
-export default function Home() {
-  const [data, setData] = useState([]);
+// https://www.median.eu/cs/wp-content/uploads/2022/03/Volby_prezident_2022_02_v05MK.pdf
+// https://www.median.eu/cs/wp-content/uploads/2022/04/Volby_prezident_2022_03_v04IC.pdf
+// https://www.median.eu/cs/wp-content/uploads/2022/06/Volby_prezident_2022_05_v04IC.pdf
+
+export default function Home(props) {
+  // const [data, setData] = useState([]);
   const [history, setHistory] = useState([]);
   const [results, setResults] = useState([]);
 
@@ -29,12 +33,12 @@ export default function Home() {
   }, []);
 
   return (
-    data.length > 0 && (
+    props.data.length > 0 && (
       <div>
         <Header text="Kdo by byl lepší prezident?"></Header>
-        <MainPanel data={data} setHistory={setHistory}></MainPanel>
+        <MainPanel data={props.data} setHistory={setHistory}></MainPanel>
         <HistoryPanel
-          data={data}
+          data={props.data}
           history={history}
           results={results}
         ></HistoryPanel>
