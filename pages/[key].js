@@ -51,7 +51,7 @@ const DetailsPage = props => {
           ></Image>
           <div className={styles.candidateInfo}>
             <ul>
-              <h5>Základní údaje</h5>
+              <h5 className={styles.bioSubtitle}>Základní údaje</h5>
 
               <li>{candidateDetails.povolani}</li>
               <li>
@@ -66,7 +66,7 @@ const DetailsPage = props => {
               {candidateDetails.deti && <li>{candidateDetails.deti}</li>}
               {candidateDetails.vyznani && <li>{candidateDetails.vyznani}</li>}
               {(candidateDetails.strana || candidateDetails.minulost) && (
-                <h5>Politická příslušnost</h5>
+                <h5 className={styles.bioSubtitle}>Politická příslušnost</h5>
               )}
               {candidateDetails.minulost && (
                 <li>
@@ -81,7 +81,7 @@ const DetailsPage = props => {
                   {candidateDetails.strana.od}{" "}
                 </li>
               )}
-              <h5>Vzdělání</h5>
+              <h5 className={styles.bioSubtitle}>Vzdělání</h5>
               {candidateDetails.vzdelani &&
                 candidateDetails.vzdelani.map((item, index) => {
                   return (

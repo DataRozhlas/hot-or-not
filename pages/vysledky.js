@@ -18,7 +18,7 @@ export default function Vysledky(props) {
   }, []);
 
   return (
-    <>
+    <div className={styles.container}>
       <Header text="Nejúspěšnější kandidáti"></Header>
       <h3 className={styles.subtitle}>
         Kliknutím na kandidáta zobrazíte podrobnosti
@@ -33,7 +33,7 @@ export default function Vysledky(props) {
           <button className={styles.button}>Zpět</button>
         </Link>
       </div>
-    </>
+    </div>
   );
 }
 
