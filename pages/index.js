@@ -54,7 +54,8 @@ export default function Home(props) {
         <div className={styles.buttonContainer}>
           <Link href="/vysledky">
             <button className={`${styles.button} ${styles[greyStyle]}`}>
-              Zobrazit žebříček
+              Zobrazit výsledky hlasování<br></br>
+              <span className={styles.buttonSmall}>čtenářů iROZHLAS.cz</span>
             </button>
           </Link>
         </div>

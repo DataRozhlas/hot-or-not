@@ -35,9 +35,9 @@ const DetailsPage = props => {
   return (
     candidateDetails &&
     results.length > 0 && (
-      <div>
+      <div className={styles.container}>
         <Header text={candidateDetails.name}></Header>
-        <h3 className={styles.subtitle}>{`${Math.round(
+        <h3 className={styles.subtitleDetail}>{`${Math.round(
           (candidateResults.w / (candidateResults.w + candidateResults.l)) * 100
         )} % vítězství z ${candidateResults.w + candidateResults.l} duelů`}</h3>
         <div className={styles.candidateProfileContainer}>
@@ -51,12 +51,46 @@ const DetailsPage = props => {
           ></Image>
           <div className={styles.candidateInfo}>
             <ul>
-              <li>povolání</li>
-              <li>věk</li>
-              <li>bydliště</li>
-              <li>členství v politických stranách</li>
-              <li>odkaz na články iROZHLASu</li>
-              <li>a jiné info</li>
+              <h5>Základní údaje</h5>
+
+              <li>{candidateDetails.povolani}</li>
+              <li>
+                {Math.floor(
+                  (Date.now() - Date.parse(candidateDetails.dob)) / 31557600000
+                )}{" "}
+                let
+              </li>
+              <li>{candidateDetails.bydliste}</li>
+              <li>{candidateDetails.pob}</li>
+              <li>{candidateDetails.stav}</li>
+              {candidateDetails.deti && <li>{candidateDetails.deti}</li>}
+              {candidateDetails.vyznani && <li>{candidateDetails.vyznani}</li>}
+              {(candidateDetails.strana || candidateDetails.minulost) && (
+                <h5>Politická příslušnost</h5>
+              )}
+              {candidateDetails.minulost && (
+                <li>
+                  dříve: {candidateDetails.minulost.nazev} (
+                  {candidateDetails.minulost.od} -{candidateDetails.minulost.do}
+                  )
+                </li>
+              )}
+              {candidateDetails.strana && (
+                <li>
+                  nyní: {candidateDetails.strana.nazev}, od{" "}
+                  {candidateDetails.strana.od}{" "}
+                </li>
+              )}
+              <h5>Vzdělání</h5>
+              {candidateDetails.vzdelani &&
+                candidateDetails.vzdelani.map((item, index) => {
+                  return (
+                    <li key={index}>
+                      {item.rok && `${item.rok} –`} {item.nazev}
+                      {item.obor && `, ${item.obor}`}
+                    </li>
+                  );
+                })}
             </ul>
           </div>
         </div>

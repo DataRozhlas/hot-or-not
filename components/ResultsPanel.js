@@ -15,8 +15,6 @@ const ResultsPanel = props => {
     });
   return (
     <div className={styles.container}>
-      {!props.dativ && <p>Kliknutím na kandidáta zobrazíte detaily</p>}
-
       {candidates.map((candidate, index) => {
         const candidateDetail = props.data.filter(
           i => i.id === candidate.id

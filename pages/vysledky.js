@@ -20,6 +20,9 @@ export default function Vysledky(props) {
   return (
     <>
       <Header text="Nejúspěšnější kandidáti"></Header>
+      <h3 className={styles.subtitle}>
+        Kliknutím na kandidáta zobrazíte podrobnosti
+      </h3>
       <ResultsPanel
         results={results}
         dativ={false}

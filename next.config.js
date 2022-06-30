@@ -5,7 +5,7 @@ const nextConfig = {
     loader: "custom",
   },
   trailingSlash: true,
-  basePath: "/hot-or-not/out",
+  basePath: "/hrad-or-not",
 };
 
 module.exports = nextConfig;
