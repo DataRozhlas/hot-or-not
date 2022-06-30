@@ -1,3 +1,8 @@
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
 .button {
   width: 100%;
   max-width: 350px;
@@ -10,6 +15,12 @@
   font-weight: bold;
   margin: 2.5rem 1rem;
   cursor: pointer;
+}
+
+@media screen and (max-width: 450px) {
+  .button {
+    margin-top: 1rem;
+  }
 }
 
 .grey20 {

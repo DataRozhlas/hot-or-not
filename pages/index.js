@@ -36,11 +36,10 @@ export default function Home(props) {
   const greyStyle =
     history.length < 4 ? `grey${(history.length + 1) * 20}` : "grey100";
 
-  console.log(greyStyle);
   return (
     props.data.length > 0 && (
-      <div>
-        <Header text="Kdo by byl lepší prezident?"></Header>
+      <div className={styles.container}>
+        <Header text="Kdo by byl podle vás lepší prezident?"></Header>
         <MainPanel data={props.data} setHistory={setHistory}></MainPanel>
         <HistoryPanel
           data={props.data}
