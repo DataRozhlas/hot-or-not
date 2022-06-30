@@ -12,7 +12,8 @@ const imgLoader = ({ src, width, quality }) => {
 
 const DetailsPage = props => {
   useEffect(() => {
-    const url = "https://data.irozhlas.cz/hot-or-not-results/prez-stats.json";
+    const url =
+      "https://datarozhlas.s3.eu-central-1.amazonaws.com/hot-or-not-results/prez-stats.json";
     fetch(url)
       .then(res => res.json())
       .then(data => {

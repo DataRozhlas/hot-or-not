@@ -3,6 +3,7 @@ import Item from "./Item";
 import styles from "../styles/MainPanel.module.css";
 
 const pickRandomCandidates = (candidates, prevCandidates) => {
+  console.log(prevCandidates);
   const prevCandidatesIDs = prevCandidates.map(c => c.id);
   //pick random candidate
   let candidate1;
@@ -24,6 +25,8 @@ const pickRandomCandidates = (candidates, prevCandidates) => {
 };
 
 const MainPanel = props => {
+  const [candidates, setCandidates] = useState([props.data[0], props.data[1]]);
+
   const buttonClickHandler = candidate => {
     //save tip to dynamodb
     const http = new XMLHttpRequest();
@@ -46,8 +49,6 @@ const MainPanel = props => {
       return pickRandomCandidates(props.data, prevState);
     });
   };
-
-  const [candidates, setCandidates] = useState([props.data[0], props.data[1]]);
 
   useEffect(() => {
     setCandidates(prevState => {
