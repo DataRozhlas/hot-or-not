@@ -33,6 +33,10 @@ export default function Home(props) {
       });
   }, []);
 
+  const greyStyle =
+    history.length < 4 ? `grey${(history.length + 1) * 20}` : "grey100";
+
+  console.log(greyStyle);
   return (
     props.data.length > 0 && (
       <div>
@@ -45,7 +49,9 @@ export default function Home(props) {
         ></HistoryPanel>
         <div className={styles.buttonContainer}>
           <Link href="/vysledky">
-            <button className={styles.button}>Zobrazit žebříček</button>
+            <button className={`${styles.button} ${styles[greyStyle]}`}>
+              Zobrazit žebříček
+            </button>
           </Link>
         </div>
       </div>
