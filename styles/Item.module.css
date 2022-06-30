@@ -7,12 +7,7 @@
   background-color: #fff;
   border: none;
   cursor: pointer;
-}
-
-@media (hover: hover) {
-  .container:hover {
-    background-color: #f5f5f5;
-  }
+  filter: grayscale(65%);
 }
 
 .image-wrapper {
@@ -20,4 +15,13 @@
 }
 .image {
   border-radius: 50%;
+}
+
+@media (hover: hover) {
+  .container:hover {
+    filter: none;
+  }
+  .container:hover {
+    background-color: #f5f5f5;
+  }
 }

@@ -40,6 +40,11 @@ export default function Home(props) {
     props.data.length > 0 && (
       <div className={styles.container}>
         <Header text="Kdo by byl podle vás lepší prezident?"></Header>
+        <h3 className={styles.subtitle}>
+          {history.length > 0
+            ? "Vyberte z další dvojice"
+            : "Vyberte si jednoho z kandidátů"}
+        </h3>
         <MainPanel data={props.data} setHistory={setHistory}></MainPanel>
         <HistoryPanel
           data={props.data}
