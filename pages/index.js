@@ -43,13 +43,11 @@ export default function Home(props) {
           history={history}
           results={results}
         ></HistoryPanel>
-        {history.length > 1 && (
-          <div className={styles.buttonContainer}>
-            <Link href="/vysledky">
-              <button className={styles.button}>Zobrazit žebříček</button>
-            </Link>
-          </div>
-        )}
+        <div className={styles.buttonContainer}>
+          <Link href="/vysledky">
+            <button className={styles.button}>Zobrazit žebříček</button>
+          </Link>
+        </div>
       </div>
     )
   );
