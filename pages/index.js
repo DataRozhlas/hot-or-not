@@ -39,7 +39,7 @@ export default function Home(props) {
   return (
     props.data.length > 0 && (
       <div className={styles.container}>
-        <Header text="Kdo by byl podle vás lepší prezident?"></Header>
+        <Header text="Kdo by podle vás byl lepší prezident?"></Header>
         <h3 className={styles.subtitle}>
           {history.length > 0
             ? "Vyberte z další dvojice"
@@ -58,6 +58,45 @@ export default function Home(props) {
               <span className={styles.buttonSmall}>čtenářů iROZHLAS.cz</span>
             </button>
           </Link>
+        </div>
+        <div className={styles.text}>
+          <h3 className={styles.subtitle}>Výběr kandidátů</h3>
+          <p>
+            Do aplikace jsme v první fázi zařadili kandidáty, kteří alespoň v
+            jednom ze tří volebních modelů agentury Median publikovaných v{" "}
+            <a
+              href="https://www.median.eu/cs/wp-content/uploads/2022/03/Volby_prezident_2022_02_v05MK.pdf"
+              target="_blank"
+              rel="noreferrer"
+            >
+              březnu
+            </a>
+            ,{" "}
+            <a
+              href="https://www.median.eu/cs/wp-content/uploads/2022/04/Volby_prezident_2022_03_v04IC.pdf"
+              target="_blank"
+              rel="noreferrer"
+            >
+              dubnu
+            </a>{" "}
+            a{" "}
+            <a
+              href="https://www.median.eu/cs/wp-content/uploads/2022/06/Volby_prezident_2022_05_v04IC.pdf"
+              target="_blank"
+              rel="noreferrer"
+            >
+              červnu
+            </a>{" "}
+            dosáhli na 5 % hlasů a zároveň kandidaturu veřejně neodmítli. Další
+            uchazeče budeme podle stejných kritérií doplňovat až do potvrzení
+            oficiálních kandidátek.
+          </p>
+          <p>
+            První kolo prezidentských voleb se koná 13. a 14. ledna 2023. Pokud
+            v něm nikdo nezíská 50 % hlasů, ze dvou nejúspěšnějších se bude
+            definitivně vybírat 27. a 28. ledna. Volební období Miloše Zemana
+            skončí 8. března.
+          </p>
         </div>
       </div>
     )

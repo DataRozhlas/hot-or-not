@@ -120,7 +120,7 @@ export async function getStaticPaths() {
   ).then(res => res.json());
 
   return {
-    paths: data.map(i => ({ params: { key: i.key } })),
+    paths: data.filter(item => item.use).map(i => ({ params: { key: i.key } })),
     fallback: false,
   };
 }

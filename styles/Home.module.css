@@ -8,6 +8,7 @@
   width: 100%;
   max-width: 350px;
   background-color: #ffffff;
+  color: black;
   border: solid 1px;
   padding: 15px 32px;
   text-align: center;
@@ -35,6 +36,11 @@
   margin-top: 0;
   margin-bottom: 1.5rem;
   font-size: 1rem;
+}
+
+.text {
+  margin: 0rem 3rem;
+  margin-bottom: 3rem;
 }
 
 .buttonSmall {
