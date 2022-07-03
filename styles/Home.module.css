@@ -48,15 +48,6 @@
   font-weight: 400;
 }
 
-@media screen and (max-width: 450px) {
-  .button {
-    margin-top: 1rem;
-  }
-  .subtitle {
-    margin-bottom: 0rem;
-  }
-}
-
 .grey20 {
   border-color: #bdbdbd;
   color: #bdbdbd;
@@ -130,7 +121,20 @@
   }
 }
 
-.subtitle {
-  text-align: center;
-  margin-top: 0;
+@media screen and (max-width: 700px) {
+  .button {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+  .subtitle {
+    margin-bottom: 0rem;
+    margin-top: 1.5rem;
+  }
+  .subtitleDetail {
+    margin-top: -1.5rem;
+  }
+  .moveup {
+    margin-top: -1rem;
+    margin-bottom: 1.2rem;
+  }
 }

@@ -16,8 +16,8 @@ const RelatedArticles = props => {
   return (
     articles.length > 0 && (
       <div className={styles.container}>
-        <h3>{`Poslední člány o ${props.name ?? "prezidentské volbě"}`}</h3>
-        <ul>
+        <h3>{`Poslední články o ${props.name ?? "prezidentské volbě"}`}</h3>
+        <ul className={styles.list}>
           {articles.map(article => {
             return (
               <li key={article.id}>

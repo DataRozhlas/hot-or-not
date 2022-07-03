@@ -4,3 +4,9 @@
   margin-bottom: 4rem;
   align-self: center;
 }
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}

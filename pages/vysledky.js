@@ -36,7 +36,11 @@ export default function Vysledky(props) {
         />
         <meta
           property="og:url"
-          content="https://data.irozhlas.cz/hrad-or-not/vysledky"
+          content="https://data.irozhlas.cz/hrad-or-not/vysledky/"
+        />
+        <meta
+          property="og:description"
+          content="Takto by dopadlo hlasování čtenářů iROZHLAS.cz. Také se do něj můžete zapojit."
         />
 
         <meta name="twitter:card" content="summary" />
@@ -55,7 +59,7 @@ export default function Vysledky(props) {
 
       <div className={styles.container}>
         <Header text="Nejúspěšnější kandidáti"></Header>
-        <h3 className={styles.subtitle}>
+        <h3 className={`${styles.subtitle} ${styles.moveup}`}>
           Kliknutím na kandidáta zobrazíte podrobnosti
         </h3>
         <ResultsPanel

@@ -38,7 +38,7 @@ const MainPanel = props => {
   let lastClickTime = Date.now();
 
   const buttonClickHandler = candidate => {
-    if (Date.now() - lastClickTime > 1500) {
+    if (Date.now() - lastClickTime > 950) {
       //save tip to dynamodb
       const http = new XMLHttpRequest();
       const url =

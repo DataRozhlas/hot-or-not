@@ -51,7 +51,13 @@ const DetailsPage = props => {
         />
         <meta
           property="og:url"
-          content={`https://data.irozhlas.cz/hrad-or-not/${candidateDetails.key}`}
+          content={`https://data.irozhlas.cz/hrad-or-not/${candidateDetails.key}/`}
+        />
+        <meta
+          property="og:description"
+          content={
+            "Podívejte se, jak by podle naší ankety obstál/a ve druhém kole proti jiným kandidátům."
+          }
         />
 
         <meta name="twitter:card" content="summary" />

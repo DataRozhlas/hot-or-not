@@ -55,7 +55,12 @@ export default function Home(props) {
           property="og:url"
           content="https://data.irozhlas.cz/hrad-or-not/"
         />
-
+        <meta
+          property="og:description"
+          content={
+            "Do aplikace jsme v první fázi zařadili kandidáty, kteří alespoň v jednom ze tří volebních modelů agentury Median dosáhli na 5 % hlasů a zároveň kandidaturu veřejně neodmítli."
+          }
+        />
         <meta name="twitter:card" content="summary" />
         <meta
           name="twitter:title"
@@ -74,7 +79,10 @@ export default function Home(props) {
           <Header text="Kdo by podle vás byl lepší prezident?"></Header>
           <h3 className={styles.subtitle}>
             {history.length > 0
-              ? "Vyberte z další dvojice"
+              ? `Vyberte z další dvojice. Zbývá  ${
+                  (props.data.length ** 2 - props.data.length) / 2 -
+                  history.length
+                }`
               : "Vyberte si jednoho z kandidátů"}
           </h3>
           <MainPanel
