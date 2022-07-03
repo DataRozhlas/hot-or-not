@@ -46,7 +46,11 @@ export default function Home(props) {
             ? "Vyberte z další dvojice"
             : "Vyberte si jednoho z kandidátů"}
         </h3>
-        <MainPanel data={props.data} setHistory={setHistory}></MainPanel>
+        <MainPanel
+          data={props.data}
+          history={history}
+          setHistory={setHistory}
+        ></MainPanel>
         <HistoryPanel
           data={props.data}
           history={history}
