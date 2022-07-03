@@ -25,7 +25,12 @@ const Item = props => {
           height={300}
         ></Image>
       </div>
-      <h2>{props.candidate.name}</h2>
+      <h2 className={styles.candidateName}>{props.candidate.name}</h2>
+      <p className={styles.shortBio}>
+        {`${props.candidate.povolani}, ${Math.floor(
+          (Date.now() - Date.parse(props.candidate.dob)) / 31557600000
+        )} let, ${props.candidate.bydliste}`}
+      </p>
     </button>
   );
 };

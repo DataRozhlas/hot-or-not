@@ -11,10 +11,10 @@ const Layout = props => {
         <title>Kdo by byl lepší prezident?</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
 
-        <meta key="share-image" property="og:image" content="./share.png" />
+        <meta key="share-image" property="og:image" content="./img/share.png" />
         <meta
           property="og:title"
-          content="Kdo by byl podle vás lepší prezident?"
+          content="Kdo by podle vás byl lepší prezident?"
         />
         <meta name="twitter:card" content="summary" />
 

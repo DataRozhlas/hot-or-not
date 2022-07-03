@@ -16,6 +16,14 @@
   border-radius: 50%;
 }
 
+.candidateName {
+  margin-bottom: 0;
+}
+
+.shortBio {
+  margin-top: 0.2rem;
+}
+
 @media screen and (min-width: 700px) {
   .container {
     filter: grayscale(65%);
