@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useRef } from "react";
 import { useRouter } from "next/router";
+import Head from "next/head";
 import Link from "next/link";
 import Image from "next/image";
 import Header from "../components/Header";
@@ -34,91 +35,105 @@ const DetailsPage = props => {
   }
 
   return (
-    candidateDetails &&
-    results.length > 0 && (
-      <div className={styles.container}>
-        <Header text={candidateDetails.name}></Header>
-        <h3 className={styles.subtitleDetail}>{`${Math.round(
-          (candidateResults.w / (candidateResults.w + candidateResults.l)) * 100
-        )} % vítězství z ${candidateResults.w + candidateResults.l} duelů`}</h3>
-        <div className={styles.candidateProfileContainer}>
-          <Image
-            loader={imgLoader}
-            className={styles.image}
-            src={`/img/${candidateDetails.key}`}
-            alt={candidateDetails.name}
-            width={300}
-            height={300}
-          ></Image>
-          <div className={styles.candidateInfo}>
-            <ul>
-              <h5 className={styles.bioSubtitle}>Základní údaje</h5>
+    <>
+      <Head>
+        <title>
+          {`Průběžné výsledky ${candidateDetails.genitiv} v simulátoru druhého kola prezidentských voleb`}
+        </title>
+      </Head>
+      {candidateDetails && results.length > 0 && (
+        <div className={styles.container}>
+          <Header text={candidateDetails.name}></Header>
+          <h3 className={styles.subtitleDetail}>{`${Math.round(
+            (candidateResults.w / (candidateResults.w + candidateResults.l)) *
+              100
+          )} % vítězství z ${
+            candidateResults.w + candidateResults.l
+          } duelů`}</h3>
+          <div className={styles.candidateProfileContainer}>
+            <Image
+              loader={imgLoader}
+              className={styles.image}
+              src={`/img/${candidateDetails.key}`}
+              alt={candidateDetails.name}
+              width={300}
+              height={300}
+            ></Image>
+            <div className={styles.candidateInfo}>
+              <ul>
+                <h5 className={styles.bioSubtitle}>Základní údaje</h5>
 
-              <li>{candidateDetails.povolani}</li>
-              <li>
-                {Math.floor(
-                  (Date.now() - Date.parse(candidateDetails.dob)) / 31557600000
-                )}{" "}
-                let
-              </li>
-              <li>{candidateDetails.bydliste}</li>
-              <li>{candidateDetails.pob}</li>
-              <li>{candidateDetails.stav}</li>
-              {candidateDetails.deti && <li>{candidateDetails.deti}</li>}
-              {candidateDetails.vyznani && <li>{candidateDetails.vyznani}</li>}
-              {(candidateDetails.strana || candidateDetails.minulost) && (
-                <h5 className={styles.bioSubtitle}>Politická příslušnost</h5>
-              )}
-              {candidateDetails.minulost && (
+                <li>{candidateDetails.povolani}</li>
                 <li>
-                  dříve: {candidateDetails.minulost.nazev}{" "}
-                  {candidateDetails.minulost.od &&
-                    candidateDetails.minulost.do &&
-                    `${candidateDetails.minulost.od} -
+                  {Math.floor(
+                    (Date.now() - Date.parse(candidateDetails.dob)) /
+                      31557600000
+                  )}{" "}
+                  let
+                </li>
+                <li>{candidateDetails.bydliste}</li>
+                <li>{candidateDetails.pob}</li>
+                <li>{candidateDetails.stav}</li>
+                {candidateDetails.deti && <li>{candidateDetails.deti}</li>}
+                {candidateDetails.vyznani && (
+                  <li>{candidateDetails.vyznani}</li>
+                )}
+                {(candidateDetails.strana || candidateDetails.minulost) && (
+                  <h5 className={styles.bioSubtitle}>Politická příslušnost</h5>
+                )}
+                {candidateDetails.minulost && (
+                  <li>
+                    dříve: {candidateDetails.minulost.nazev}{" "}
+                    {candidateDetails.minulost.od &&
+                      candidateDetails.minulost.do &&
+                      `${candidateDetails.minulost.od} -
                   ${candidateDetails.minulost.do}`}
-                </li>
-              )}
-              {candidateDetails.strana && (
-                <li>
-                  nyní: {candidateDetails.strana.nazev}
-                  {candidateDetails.strana.od &&
-                    `, od ${candidateDetails.strana.od}`}
-                </li>
-              )}
-              <h5 className={styles.bioSubtitle}>Vzdělání</h5>
-              {candidateDetails.vzdelani &&
-                candidateDetails.vzdelani.map((item, index) => {
-                  return (
-                    <li key={index}>
-                      {item.rok && `${item.rok} –`} {item.nazev}
-                      {item.obor && `, ${item.obor}`}
-                    </li>
-                  );
-                })}
-            </ul>
+                  </li>
+                )}
+                {candidateDetails.strana && (
+                  <li>
+                    nyní: {candidateDetails.strana.nazev}
+                    {candidateDetails.strana.od &&
+                      `, od ${candidateDetails.strana.od}`}
+                  </li>
+                )}
+                <h5 className={styles.bioSubtitle}>Vzdělání</h5>
+                {candidateDetails.vzdelani &&
+                  candidateDetails.vzdelani.map((item, index) => {
+                    return (
+                      <li key={index}>
+                        {item.rok && `${item.rok} –`} {item.nazev}
+                        {item.obor && `, ${item.obor}`}
+                      </li>
+                    );
+                  })}
+              </ul>
+            </div>
           </div>
+          <div className={styles.resultsContainer}>
+            <h3 className={styles.subtitle}>
+              {candidateDetails.dativ} se nejvíc daří proti
+            </h3>
+            <ResultsPanel
+              results={candidateResults.c}
+              dativ={true}
+              data={props.data}
+            ></ResultsPanel>
+          </div>
+          <div className={styles.buttonContainer}>
+            <Link href="/vysledky">
+              <button className={styles.button}>
+                Zpět na celkové výsledky
+              </button>
+            </Link>
+          </div>
+          <RelatedArticles
+            tag={candidateDetails.tag}
+            name={candidateDetails.dativ}
+          ></RelatedArticles>
         </div>
-        <div className={styles.resultsContainer}>
-          <h3 className={styles.subtitle}>
-            {candidateDetails.dativ} se nejvíc daří proti
-          </h3>
-          <ResultsPanel
-            results={candidateResults.c}
-            dativ={true}
-            data={props.data}
-          ></ResultsPanel>
-        </div>
-        <div className={styles.buttonContainer}>
-          <Link href="/vysledky">
-            <button className={styles.button}>Zpět na celkové výsledky</button>
-          </Link>
-        </div>
-        <RelatedArticles
-          tag={candidateDetails.tag}
-          name={candidateDetails.dativ}
-        ></RelatedArticles>
-      </div>
-    )
+      )}
+    </>
   );
 };
 

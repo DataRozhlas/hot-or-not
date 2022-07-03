@@ -8,23 +8,7 @@ const Layout = props => {
   return (
     <>
       <Head>
-        <title>Simulátor druhého kola prezidentských voleb</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-
-        <meta
-          key="share-image"
-          property="og:image"
-          content="https://www.irozhlas.cz/sites/default/files/styles/zpravy_facebook/public/uploader/artboard_1_220703-181041_pek.jpg?itok=oPSEOdr7"
-        />
-        <meta
-          property="og:title"
-          content="Kdo by podle vás byl lepší prezident?"
-        />
-        <meta name="twitter:card" content="summary" />
-        <meta
-          property="twitter:image"
-          content="https://www.irozhlas.cz/sites/default/files/styles/zpravy_twitter/public/uploader/artboard_1_220703-181041_pek.jpg?itok=SQUPK6Z3"
-        ></meta>
 
         <link
           rel="apple-touch-icon"
