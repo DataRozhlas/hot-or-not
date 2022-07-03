@@ -2,7 +2,6 @@ import React from "react";
 import styles from "../styles/HistoryItem.module.css";
 
 const HistoryItem = props => {
-  console.log(props);
   const winnerID = props.item[2];
   const loserID =
     props.item[0] === props.item[2] ? props.item[1] : props.item[0];
