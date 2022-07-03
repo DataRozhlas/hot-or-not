@@ -51,7 +51,7 @@ const DetailsPage = props => {
         />
         <meta
           property="og:url"
-          content="https://data.irozhlas.cz/hrad-or-not/vysledky"
+          content={`https://data.irozhlas.cz/hrad-or-not/${candidateDetails.key}`}
         />
 
         <meta name="twitter:card" content="summary" />

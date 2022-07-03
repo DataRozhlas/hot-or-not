@@ -53,7 +53,7 @@ export default function Home(props) {
         />
         <meta
           property="og:url"
-          content="https://data.irozhlas.cz/hrad-or-not/vysledky"
+          content="https://data.irozhlas.cz/hrad-or-not/"
         />
 
         <meta name="twitter:card" content="summary" />
