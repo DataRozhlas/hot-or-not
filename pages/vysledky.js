@@ -31,9 +31,26 @@ export default function Vysledky(props) {
           content="https://www.irozhlas.cz/sites/default/files/styles/zpravy_facebook/public/uploader/artboard_1_220703-181041_pek.jpg"
         />
         <meta
-          property="twitter:image"
+          property="og:title"
+          content="Průběžné výsledky simulátoru druhého kola prezidentských voleb"
+        />
+        <meta
+          property="og:url"
+          content="https://data.irozhlas.cz/hrad-or-not/vysledky"
+        />
+
+        <meta name="twitter:card" content="summary" />
+        <meta
+          name="twitter:title"
+          content="Průběžné výsledky simulátoru druhého kola prezidentských voleb"
+        />
+
+        <meta name="twitter:site" content="@datarozhlas" />
+        <meta name="twitter:creator" content="@tocit" />
+        <meta
+          name="twitter:image"
           content="https://www.irozhlas.cz/sites/default/files/styles/zpravy_twitter/public/uploader/artboard_1_220703-181041_pek.jpg"
-        ></meta>
+        />
       </Head>
 
       <div className={styles.container}>

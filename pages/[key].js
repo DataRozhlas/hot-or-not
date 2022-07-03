@@ -40,6 +40,32 @@ const DetailsPage = props => {
         <title>
           {`Průběžné výsledky ${candidateDetails.genitiv} v simulátoru druhého kola prezidentských voleb`}
         </title>
+        <meta
+          key="share-image"
+          property="og:image"
+          content={`https://data.irozhlas.cz/hrad-or-not/img/${candidateDetails.key}-300.jpg`}
+        />
+        <meta
+          property="og:title"
+          content={`Průběžné výsledky ${candidateDetails.genitiv} v simulátoru druhého kola prezidentských voleb`}
+        />
+        <meta
+          property="og:url"
+          content="https://data.irozhlas.cz/hrad-or-not/vysledky"
+        />
+
+        <meta name="twitter:card" content="summary" />
+        <meta
+          name="twitter:title"
+          content={`Průběžné výsledky ${candidateDetails.genitiv} v simulátoru druhého kola prezidentských voleb`}
+        />
+
+        <meta name="twitter:site" content="@datarozhlas" />
+        <meta name="twitter:creator" content="@tocit" />
+        <meta
+          name="twitter:image"
+          content={`https://data.irozhlas.cz/hrad-or-not/img/${candidateDetails.key}-300.jpg`}
+        />
       </Head>
       {candidateDetails && results.length > 0 && (
         <div className={styles.container}>
