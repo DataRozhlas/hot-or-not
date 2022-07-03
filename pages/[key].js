@@ -110,7 +110,7 @@ const DetailsPage = props => {
         </div>
         <div className={styles.buttonContainer}>
           <Link href="/vysledky">
-            <button className={styles.button}>Zpět</button>
+            <button className={styles.button}>Zpět na celkové výsledky</button>
           </Link>
         </div>
         <RelatedArticles

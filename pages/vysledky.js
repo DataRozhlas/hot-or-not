@@ -31,7 +31,7 @@ export default function Vysledky(props) {
       ></ResultsPanel>
       <div className={styles.buttonContainer}>
         <Link href="/">
-          <button className={styles.button}>Zpět</button>
+          <button className={styles.button}>Zpět k hlasování</button>
         </Link>
       </div>
       <RelatedArticles

@@ -13,3 +13,12 @@
 .grey {
   color: #888;
 }
+
+.winner {
+  font-weight: 700;
+}
+
+.loser {
+  color: #888;
+  text-decoration: line-through;
+}
