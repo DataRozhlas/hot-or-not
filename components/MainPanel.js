@@ -1,30 +1,39 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useLayoutEffect } from "react";
 import Item from "./Item";
 import styles from "../styles/MainPanel.module.css";
+import { useRouter } from "next/router";
 
 const pickRandomCandidates = (candidates, prevCandidates) => {
-  console.log(prevCandidates);
-  const prevCandidatesIDs = prevCandidates.map(c => c.id);
-  //pick random candidate
+  const prevCandidatesIDs = prevCandidates.map(c => [c[0], c[1]]);
+  let result;
   let candidate1;
-  do {
-    candidate1 = candidates[Math.floor(Math.random() * candidates.length)];
-  } while (prevCandidatesIDs.includes(candidate1.id));
-
   let candidate2;
 
   do {
+    //pick random candidate
+    candidate1 = candidates[Math.floor(Math.random() * candidates.length)];
     candidate2 = candidates[Math.floor(Math.random() * candidates.length)];
+    result = [candidate1, candidate2];
   } while (
     candidate1.id === candidate2.id ||
-    prevCandidatesIDs.includes(candidate2.id)
+    prevCandidatesIDs.some(
+      item => item.includes(candidate1.id) && item.includes(candidate2.id)
+    )
   );
-
-  return [candidate1, candidate2];
-  //TODO pick weighted random candidate
+  if (prevCandidatesIDs.length > 0) {
+    // console.log(result[0], prevCandidatesIDs[prevCandidatesIDs.length - 1][0]);
+    if (
+      result[0].id === prevCandidatesIDs[prevCandidatesIDs.length - 1][0] ||
+      result[1].id === prevCandidatesIDs[prevCandidatesIDs.length - 1][1]
+    ) {
+      return result.reverse();
+    }
+  }
+  return result;
 };
 
 const MainPanel = props => {
+  const router = useRouter();
   const [candidates, setCandidates] = useState([props.data[0], props.data[1]]);
   let lastClickTime = Date.now();
 
@@ -45,20 +54,26 @@ const MainPanel = props => {
         })
       );
     }
-    props.setHistory(prevState => {
-      return [...prevState, [candidates[0].id, candidates[1].id, candidate.id]];
-    });
-    setCandidates(prevState => {
-      return pickRandomCandidates(props.data, prevState);
-    });
-    lastClickTime = Date.now();
+    if (
+      props.history.length ===
+      (props.data.length ** 2 - props.data.length) / 2 - 1
+    ) {
+      router.push("/vysledky");
+    } else {
+      props.setHistory(prevState => {
+        return [
+          ...prevState,
+          [candidates[0].id, candidates[1].id, candidate.id],
+        ];
+      });
+
+      lastClickTime = Date.now();
+    }
   };
 
-  useEffect(() => {
-    setCandidates(prevState => {
-      return pickRandomCandidates(props.data, prevState);
-    });
-  }, [props.data]);
+  useLayoutEffect(() => {
+    setCandidates(pickRandomCandidates(props.data, props.history));
+  }, [props.data, props.history]);
 
   return (
     <main className={styles.container}>

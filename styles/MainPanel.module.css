@@ -1,6 +1,6 @@
 .container {
-    display: flex;
-    flex-direction: row;
-    flex-wrap:nowrap;
-    justify-items: space-between;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-items: space-between;
 }
