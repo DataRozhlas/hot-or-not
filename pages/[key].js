@@ -70,15 +70,18 @@ const DetailsPage = props => {
               )}
               {candidateDetails.minulost && (
                 <li>
-                  dříve: {candidateDetails.minulost.nazev} (
-                  {candidateDetails.minulost.od} -{candidateDetails.minulost.do}
-                  )
+                  dříve: {candidateDetails.minulost.nazev}{" "}
+                  {candidateDetails.minulost.od &&
+                    candidateDetails.minulost.do &&
+                    `${candidateDetails.minulost.od} -
+                  ${candidateDetails.minulost.do}`}
                 </li>
               )}
               {candidateDetails.strana && (
                 <li>
-                  nyní: {candidateDetails.strana.nazev}, od{" "}
-                  {candidateDetails.strana.od}{" "}
+                  nyní: {candidateDetails.strana.nazev}
+                  {candidateDetails.strana.od &&
+                    `, od ${candidateDetails.strana.od}`}
                 </li>
               )}
               <h5 className={styles.bioSubtitle}>Vzdělání</h5>
