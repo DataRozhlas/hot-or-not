@@ -3,11 +3,12 @@ import { useRouter } from "next/router";
 import Link from "next/link";
 import Image from "next/image";
 import Header from "../components/Header";
+import RelatedArticles from "../components/RelatedArticles";
 import ResultsPanel from "../components/ResultsPanel";
 import styles from "../styles/Home.module.css";
 
 const imgLoader = ({ src, width, quality }) => {
-  return `https://data.irozhlas.cz/hot-or-not/out${src}-300.jpg`;
+  return `https://data.irozhlas.cz/hrad-or-not${src}-300.jpg`;
 };
 
 const DetailsPage = props => {
@@ -23,13 +24,13 @@ const DetailsPage = props => {
 
   const router = useRouter();
   const key = router.query.key;
-  const candidateDetails = props.data.filter(i => i.key === key)[0];
+  const candidateDetails = props.data.find(i => i.key === key);
   let candidateResults;
 
   const [results, setResults] = useState([]);
 
   if (results.length > 0) {
-    candidateResults = results.filter(i => i.id === candidateDetails.id)[0];
+    candidateResults = results.find(i => i.id === candidateDetails.id);
   }
 
   return (
@@ -112,6 +113,10 @@ const DetailsPage = props => {
             <button className={styles.button}>Zpět</button>
           </Link>
         </div>
+        <RelatedArticles
+          tag={candidateDetails.tag}
+          name={candidateDetails.dativ}
+        ></RelatedArticles>
       </div>
     )
   );

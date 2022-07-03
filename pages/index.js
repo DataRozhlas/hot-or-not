@@ -3,6 +3,7 @@ import Link from "next/link";
 import Header from "../components/Header";
 import MainPanel from "../components/MainPanel";
 import HistoryPanel from "../components/HistoryPanel";
+import RelatedArticles from "../components/RelatedArticles";
 import styles from "../styles/Home.module.css";
 
 // https://www.median.eu/cs/wp-content/uploads/2022/03/Volby_prezident_2022_02_v05MK.pdf
@@ -60,7 +61,7 @@ export default function Home(props) {
           </Link>
         </div>
         <div className={styles.text}>
-          <h3 className={styles.subtitle}>Výběr kandidátů</h3>
+          <h3>Výběr kandidátů</h3>
           <p>
             Do aplikace jsme v první fázi zařadili kandidáty, kteří alespoň v
             jednom ze tří volebních modelů agentury Median publikovaných v{" "}
@@ -98,6 +99,10 @@ export default function Home(props) {
             skončí 8. března.
           </p>
         </div>
+        <RelatedArticles
+          tag={426226}
+          name={"prezidentské volbě"}
+        ></RelatedArticles>
       </div>
     )
   );

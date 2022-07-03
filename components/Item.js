@@ -3,7 +3,7 @@ import Image from "next/image";
 import styles from "../styles/Item.module.css";
 
 const imgLoader = ({ src, width, quality }) => {
-  return `https://data.irozhlas.cz/hot-or-not/out${src}-300.jpg`;
+  return `https://data.irozhlas.cz/hrad-or-not${src}-300.jpg`;
 };
 
 const Item = props => {

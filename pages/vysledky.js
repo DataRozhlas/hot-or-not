@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import styles from "../styles/Home.module.css";
 import Header from "../components/Header";
 import ResultsPanel from "../components/ResultsPanel";
+import RelatedArticles from "../components/RelatedArticles";
 import Link from "next/link";
 
 export default function Vysledky(props) {
@@ -33,6 +34,10 @@ export default function Vysledky(props) {
           <button className={styles.button}>Zpět</button>
         </Link>
       </div>
+      <RelatedArticles
+        tag={426226}
+        name={"prezidentské volbě"}
+      ></RelatedArticles>
     </div>
   );
 }

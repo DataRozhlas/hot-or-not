@@ -39,8 +39,9 @@
 }
 
 .text {
-  margin: 0rem 3rem;
-  margin-bottom: 3rem;
+  margin: 0rem 1rem;
+  max-width: 600px;
+  align-self: center;
 }
 
 .buttonSmall {

@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 const imgLoader = ({ src, width, quality }) => {
-  return `https://data.irozhlas.cz/hot-or-not/out${src}-300.jpg`;
+  return `https://data.irozhlas.cz/hrad-or-not${src}-75.jpg`;
 };
 
 const ResultsItem = props => {
