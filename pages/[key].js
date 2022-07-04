@@ -79,9 +79,9 @@ const DetailsPage = props => {
           <h3 className={styles.subtitleDetail}>{`${Math.round(
             (candidateResults.w / (candidateResults.w + candidateResults.l)) *
               100
-          )} % vítězství z ${
+          )} % vítězství z ${(
             candidateResults.w + candidateResults.l
-          } duelů`}</h3>
+          ).toLocaleString("cs-CZ")} duelů`}</h3>
           <div className={styles.candidateProfileContainer}>
             <Image
               loader={imgLoader}
