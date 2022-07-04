@@ -31,9 +31,9 @@ const ResultsItem = props => {
             props.dativ
               ? 100 - props.candidateResults.pct
               : props.candidateResults.pct
-          } % vítězství z  ${
+          } % vítězství z  ${(
             props.candidateResults.w + props.candidateResults.l
-          } duelů`}</p>
+          ).toLocaleString("cs-CZ")} duelů`}</p>
         </div>
       </div>
     </Link>
